@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>espace vendeur</title>
+    <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        #header {
+            background-color: #D40912;
+            color: floralwhite;
+            padding: 20px;
+            text-align: left;
+        }
+        #logo-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        #logo-button img {
+            width: 50px;
+            vertical-align: middle;
+        }
+        #enterDetails {
+            margin: 20px auto;
+            padding: 20px;
+            width: 1300px;
+            background-color: #333;
+            color: floralwhite;
+            border-radius: 8px;
+        }
+        input {
+            width: 60%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 15px 25px;
+            border: unset;
+            border-radius: 15px;
+            color: #212121;
+            z-index: 1;
+            background: #e8e8e8;
+            position: relative;
+            font-weight: 1000;
+            font-size: 17px;
+            -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            transition: all 250ms;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            border-radius: 15px;
+            background-color: #212121;
+            z-index: -1;
+            -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            transition: all 250ms;
+        }
+
+        button:hover {
+            color: #e8e8e8;
+        }
+
+        button:hover::before {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <center>
+            <a href="service58.html">
+                <img class="logo" src="imgs/20220713_173129.png" width="130" alt="Logo">
+            </a>
+        </center>
+    </div>
+    <div id="enterDetails">
+        <h1>Enter details</h1>
+        <label for="enterID"><h4>Name product </h4></label>
+        <input id="enterID" type="text" required> 
+
+        <label for="enterName"><h4>product description</h4></label>
+        <input id="enterName" type="text" required> 
+
+        <label for="enterAge"><h4>price</h4></label>
+        <input id="enterAge" type="number" required> <br><br>
+
+        <label for="enterPhoto"><h4>Upload Photo</h4></label>
+        <input id="enterPhoto" type="file" accept="image/*" required> <br><br>
+
+        <button id="insert">INSERT</button>
+        <br><br>
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+        import { getStorage, ref as sRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-storage.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDy5uNh-U1dfqbjrmW6kpqYrTra9tmXr_c",
+            authDomain: "ccjkg-d6d6a.firebaseapp.com",
+            databaseURL: "https://ccjkg-d6d6a-default-rtdb.firebaseio.com",
+            projectId: "ccjkg-d6d6a",
+            storageBucket: "ccjkg-d6d6a.appspot.com",
+            messagingSenderId: "736362637120",
+            appId: "1:736362637120:web:307fe21e86ac820bd83ca5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const storage = getStorage(app);
+        const db = getDatabase(app);
+
+        var enterID = document.querySelector("#enterID");
+        var enterName = document.querySelector("#enterName");
+        var enterAge = document.querySelector("#enterAge");
+        var enterPhoto = document.querySelector("#enterPhoto");
+
+        var insertBtn = document.querySelector("#insert");
+
+        function uploadImage(file, callback) {
+            const storageRef = sRef(storage, 'images/' + file.name);
+            console.log("Uploading file...");
+            uploadBytes(storageRef, file).then((snapshot) => {
+                console.log("File uploaded, getting download URL...");
+                getDownloadURL(snapshot.ref).then((url) => {
+                    console.log("Download URL obtained:", url);
+                    callback(url);
+                }).catch((error) => {
+                    console.error("Failed to get download URL:", error);
+                });
+            }).catch((error) => {
+                console.error("Failed to upload file:", error);
+            });
+        }
+
+        function InsertData() {
+            const file = enterPhoto.files[0];
+            if (file) {
+                uploadImage(file, (url) => {
+                    set(ref(db, "People/" + enterID.value), {
+                        discruption: enterName.value,
+                        name: enterID.value,
+                        prix: enterAge.value,
+                        photoUrl: url
+                    })
+                    .then(() => {
+                        console.log("Data added successfully");
+                        alert("Data added successfully");
+                    })
+                    .catch((error) => {
+                        console.error("Failed to add data:", error);
+                        alert("Failed to add data: " + error);
+                    });
+                });
+            } else {
+                alert("Please select a photo to upload.");
+            }
+        }
+
+        insertBtn.addEventListener('click', InsertData);
+    </script>
+</body>
+</html>

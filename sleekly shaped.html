@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sleekly shaped</title>
+    <meta name="description" content="Description de votre site web.">
+    <meta name="keywords" content="mots-clés, pour, votre, site">
+    <meta name="author" content="Votre Nom">
+
+    <!-- Favicon -->
+    <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Externe -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- JavaScript Externe -->
+    <script src="script.js" defer></script>
+    
+    <!-- Styles CSS en ligne pour la démonstration -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #333;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #FAF7F0;
+            font-weight: bold;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 100px;
+            background-color: #FAF7F0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 260px;
+            height: 350px;
+            padding: .8em;
+            background: #f5f5f5;
+            position: relative;
+            overflow: visible;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+
+        .card-img {
+            background-color: #ffcaa6;
+            height: 40%;
+            width: 90%;
+            border-radius: .5rem;
+            transition: .3s ease;
+        }
+
+        .card-info {
+            padding-top: 10%;
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .card-footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .text-title {
+            font-weight: 900;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .text-body {
+            font-size: .9em;
+            padding-bottom: 10px;
+        }
+
+        .card-button {
+            border: 1px solid #252525;
+            display: flex;
+            padding: .3em;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: .3s ease-in-out;
+        }
+
+        .card-img:hover {
+            transform: translateY(-25%);
+            box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+        }
+
+        .card-button:hover {
+            border: 1px solid #ffcaa6;
+            background-color: #ffcaa6;
+        }
+
+        button {
+            padding: 15px 25px;
+            border: unset;
+            border-radius: 15px;
+            color: #212121;
+            z-index: 1;
+            background: #e8e8e8;
+            position: relative;
+            font-weight: 1000;
+            font-size: 17px;
+            box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            transition: all 250ms;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            border-radius: 15px;
+            background-color: #212121;
+            z-index: -1;
+            box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            transition: all 250ms;
+        }
+
+        button:hover {
+            color: #e8e8e8;
+        }
+
+        button:hover::before {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .contact-form {
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .contact-form h2 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .contact-form .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            background-color: #fafafa;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form .form-group input:focus,
+        .contact-form .form-group textarea:focus {
+            border-color: #007bff;
+        }
+
+        .contact-form .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="imgs/IMG_20220713_155827_708.jpg" width="80" alt="Logo"></div>
+        <nav>
+            <ul>
+                <li><a href="#section-1"><button>HOME</button></a></li>
+                <li><a href="#section-2"><button>produits</button></a></li>
+                <li><a href="#sec"><button>CONTACT</button></a></li>
+                <li><a href="#secc"><button>ABOUT</button></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="section-1">
+        <img src="imgs/20220713_173129.png" width="1441" alt="Section 1 Image">
+    </section>
+
+    <div class="main-content">
+        <section id="section-2">
+           <center> <style>
+        body {
+            font-family:kunstler, sans-serif;
+            background-color: #FAF7F0;
+            margin: 0;
+            padding: 0;
+        }
+        .my-paragraph {
+            font-size: 30px; /* Taille de police augmentée */
+            line-height: 1.6; /* Espacement entre les lignes */
+            color: #333; /* Couleur du texte */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="my-paragraph">PRODUITS</p>
+    </div></body></center>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-img"><img src="imgs/robe1_Fotor.jpg" width="220" alt="Robe 1"></div>
+                    <div class="card-info">
+                        <p class="text-title">Robe élégante</p>
+                        <p class="text-body">Pour vos soirées formelles et événements spéciaux.</p>
+                    </div><div class="card-footer">
+                        <span class="text-title">€35.00</span>
+                        <div><a href="1.html"><button>buy</button></a>
+                                                    </div>
+                    </div>
+                </div>    
+
+
+                <div class="card">
+                    <div class="card-img"><img src="imgs/robe2_Fotor.jpg" width="220" alt="Robe 2"></div>
+                    <div class="card-info">
+                        <p class="text-title">Robe chic</p>
+                        <p class="text-body">Idéale pour une journée au bureau ou une sortie en ville.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">€30.00</span>
+                        <div><a href="2.html"><button>buy</button></a>
+                                                    </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img"><img src="imgs/robe3_Fotor.jpg" width="220" alt="Robe 3"></div>
+                    <div class="card-info">
+                        <p class="text-title">Robe de cocktail</p>
+                        <p class="text-body">Parfaite pour vos soirées et événements festifs.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">€30.00</span>
+                        <div><a href="3.html"><button>buy</button></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>   
+                <div style="height: 50px;"></div>
+
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-img"><img src="imgs/robe4_Fotor.jpg" width="220" alt="Robe 1"></div>
+                        <div class="card-info">
+                            <p class="text-title">Robe élégante</p>
+                            <p class="text-body">Pour vos soirées formelles et événements spéciaux.</p>
+                        </div><div class="card-footer">
+                            <span class="text-title">€35.00</span>
+                            <div><a href="4.html"><button>buy</button></a>
+                                                        </div>
+                        </div>
+                    </div>
+    
+                    <div class="card">
+                        <div class="card-img"><img src="imgs/robe5_Fotor.jpg" width="220" alt="Robe 2"></div>
+                        <div class="card-info">
+                            <p class="text-title">Robe chic</p>
+                            <p class="text-body">Idéale pour une journée au bureau ou une sortie en ville.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="text-title">€30.00</span>
+                            <div><a href="5.html"><button>buy</button></a>
+                                                        </div>
+                        </div>
+                    </div>
+    
+                    <div class="card">
+                        <div class="card-img"><img src="imgs/robe6_Fotor.jpg" width="220" alt="Robe 3"></div>
+                        <div class="card-info">
+                            <p class="text-title">Robe de cocktail</p>
+                            <p class="text-body">Parfaite pour vos soirées et événements festifs.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="text-title">€30.00</span>
+                            <div><a href="6.html"><button>buy</button></a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>  
+                    <div style="height: 50px;"></div>
+
+                    <div class="card-container">
+                        <div class="card">
+                            <div class="card-img"><img src="imgs/robe7_Fotor.jpg" width="220" alt="Robe 1"></div>
+                            <div class="card-info">
+                                <p class="text-title">Robe élégante</p>
+                                <p class="text-body">Pour vos soirées formelles et événements spéciaux.</p>
+                            </div><div class="card-footer">
+                                <span class="text-title">€35.00</span>
+                                <div><a href="7.html"><button>buy</button></a>
+                                                            </div>
+                            </div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="card-img"><img src="imgs/robe8_Fotor.jpg" width="220" alt="Robe 2"></div>
+                            <div class="card-info">
+                                <p class="text-title">Robe chic</p>
+                                <p class="text-body">Idéale pour une journée au bureau ou une sortie en ville.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="text-title">€30.00</span>
+                                <div><a href="8.html"><button>buy</button></a>
+                                                            </div>
+                            </div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="card-img"><img src="imgs/robe9_Fotor.jpg" width="220" alt="Robe 3"></div>
+                            <div class="card-info">
+                                <p class="text-title">Robe de cocktail</p>
+                                <p class="text-body">Parfaite pour vos soirées et événements festifs.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="text-title">€30.00</span>
+                                <div><a href="9.html"><button>buy</button></a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>  
+
+
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <section id="sec">
+            <center><h1>CONTACTEZ-NOUS</h1>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div></center>
+        </section>
+    </div>
+
+    <div class="container">
+        <section id="secc">
+            <h1><center>À propos de nous</center></h1>
+            <p><center>Bienvenue sur notre site web de location de vêtements et accessoires ! Nous sommes spécialisés dans la fourniture de tenues élégantes et de qualité pour toutes vos occasions. Que ce soit pour un événement spécial, une soirée entre amis ou une journée de détente, nous avons ce qu'il vous faut. Notre mission est de vous offrir une expérience de location facile, agréable et sans tracas. Explorez notre collection et trouvez la tenue parfaite qui fera tourner les têtes.</p></center>
+        </section>
+</body>
+</html>

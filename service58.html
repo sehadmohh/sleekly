@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sleekly shaped</title>
+    <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Description de votre site web.">
+    <meta name="keywords" content="mots-clés, pour, votre, site">
+    <meta name="author" content="Votre Nom">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Externe -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- JavaScript Externe -->
+    <script src="script.js" defer></script>
+    
+    <!-- Styles CSS en ligne pour la démonstration -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #333;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #FAF7F0;
+            font-weight: bold;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 100px;
+            background-color: #FAF7F0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 260px;
+            height: 350px;
+            padding: .8em;
+            background: #f5f5f5;
+            position: relative;
+            overflow: visible;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+
+        .card-img {
+            background-color: #ffcaa6;
+            height: 40%;
+            width: 90%;
+            border-radius: .5rem;
+            transition: .3s ease;
+        }
+
+        .card-info {
+            padding-top: 10%;
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .card-footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .text-title {
+            font-weight: 900;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .text-body {
+            font-size: .9em;
+            padding-bottom: 10px;
+        }
+
+        .card-button {
+            border: 1px solid #252525;
+            display: flex;
+            padding: .3em;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: .3s ease-in-out;
+        }
+
+        .card-img:hover {
+            transform: translateY(-25%);
+            box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+        }
+
+        .card-button:hover {
+            border: 1px solid #ffcaa6;
+            background-color: #ffcaa6;
+        }
+
+        button {
+            padding: 15px 25px;
+            border: unset;
+            border-radius: 15px;
+            color: #212121;
+            z-index: 1;
+            background: #e8e8e8;
+            position: relative;
+            font-weight: 1000;
+            font-size: 17px;
+            box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            transition: all 250ms;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            border-radius: 15px;
+            background-color: #212121;
+            z-index: -1;
+            box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            transition: all 250ms;
+        }
+
+        button:hover {
+            color: #e8e8e8;
+        }
+
+        button:hover::before {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .contact-form {
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .contact-form h2 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .contact-form .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            background-color: #fafafa;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form .form-group input:focus,
+        .contact-form .form-group textarea:focus {
+            border-color: #007bff;
+        }
+
+        .contact-form .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="imgs/IMG_20220713_155827_708.jpg" width="80" alt="Logo"></div>
+        <nav>
+            <ul>
+                <li><a href="#section-1"><button>HOME</button></a></li>
+                <li><a href="#section-2"><button>produits</button></a></li>
+                <li><a href="#sec"><button>CONTACT</button></a></li>
+                <li><a href="#secc"><button>ABOUT</button></a></li>
+                <li><a href="http://localhost:5500/signin.html"><button>espace vendeur</button></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="section-1">
+        <img src="imgs/20220713_173129.png" width="1441" alt="Section 1 Image">
+    </section>
+    <div class="main-content">
+        <section id="section-2">
+           <center> <style>
+        body {
+            font-family:kunstler, sans-serif;
+            background-color: #FAF7F0;
+            margin: 0;
+            padding: 0;
+        }
+        .my-paragraph {
+            font-size: 30px; /* Taille de police augmentée */
+            line-height: 1.6; /* Espacement entre les lignes */
+            color: #333; /* Couleur du texte */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="my-paragraph">PRODUITS</p>
+    </div></body></center>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-img"><img src="imgs/robe1_Fotor.jpg" width="220" alt="Robe 1"></div>
+                    <div class="card-info">
+                        <p class="text-title">Robe élégante</p>
+                        <p class="text-body">Pour vos soirées formelles et événements spéciaux.</p>
+                    </div><div class="card-footer">
+                        <span class="text-title">€35.00</span>
+                        <div><a href="1.html"><button>buy</button></a>
+                                                    </div>
+                    </div>
+                </div>    
+
+
+                <div class="card">
+                    <div class="card-img"><img src="imgs/robe2_Fotor.jpg" width="220" alt="Robe 2"></div>
+                    <div class="card-info">
+                        <p class="text-title">Robe chic</p>
+                        <p class="text-body">Idéale pour une journée au bureau ou une sortie en ville.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">€30.00</span>
+                        <div><a href="2.html"><button>buy</button></a>
+                                                    </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img"><img src="imgs/robe3_Fotor.jpg" width="220" alt="Robe 3"></div>
+                    <div class="card-info">
+                        <p class="text-title">Robe de cocktail</p>
+                        <p class="text-body">Parfaite pour vos soirées et événements festifs.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">€30.00</span>
+                        <div><a href="3.html"><button>buy</button></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>   
+                <div style="height: 50px;"></div>
+
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-img"><img src="imgs/robe4_Fotor.jpg" width="220" alt="Robe 1"></div>
+                        <div class="card-info">
+                            <p class="text-title">Robe élégante</p>
+                            <p class="text-body">Pour vos soirées formelles et événements spéciaux.</p>
+                        </div><div class="card-footer">
+                            <span class="text-title">€35.00</span>
+                            <div><a href="4.html"><button>buy</button></a>
+                                                        </div>
+                        </div>
+                    </div>
+    
+                    <div class="card">
+                        <div class="card-img"><img src="imgs/robe5_Fotor.jpg" width="220" alt="Robe 2"></div>
+                        <div class="card-info">
+                            <p class="text-title">Robe chic</p>
+                            <p class="text-body">Idéale pour une journée au bureau ou une sortie en ville.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="text-title">€30.00</span>
+                            <div><a href="5.html"><button>buy</button></a>
+                                                        </div>
+                        </div>
+                    </div>
+    
+                    <div class="card">
+                        <div class="card-img"><img src="imgs/robe6_Fotor.jpg" width="220" alt="Robe 3"></div>
+                        <div class="card-info">
+                            <p class="text-title">Robe de cocktail</p>
+                            <p class="text-body">Parfaite pour vos soirées et événements festifs.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="text-title">€30.00</span>
+                            <div><a href="6.html"><button>buy</button></a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>  
+                    <div style="height: 50px;"></div>
+
+                    <div class="card-container">
+                        <div class="card">
+                            <div class="card-img"><img src="imgs/robe7_Fotor.jpg" width="220" alt="Robe 1"></div>
+                            <div class="card-info">
+                                <p class="text-title">Robe élégante</p>
+                                <p class="text-body">Pour vos soirées formelles et événements spéciaux.</p>
+                            </div><div class="card-footer">
+                                <span class="text-title">€35.00</span>
+                                <div><a href="7.html"><button>buy</button></a>
+                                                            </div>
+                            </div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="card-img"><img src="imgs/robe8_Fotor.jpg" width="220" alt="Robe 2"></div>
+                            <div class="card-info">
+                                <p class="text-title">Robe chic</p>
+                                <p class="text-body">Idéale pour une journée au bureau ou une sortie en ville.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="text-title">€30.00</span>
+                                <div><a href="8.html"><button>buy</button></a>
+                                                            </div>
+                            </div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="card-img"><img src="imgs/robe9_Fotor.jpg" width="220" alt="Robe 3"></div>
+                            <div class="card-info">
+                                <p class="text-title">Robe de cocktail</p>
+                                <p class="text-body">Parfaite pour vos soirées et événements festifs.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="text-title">€30.00</span>
+                                <div><a href="9.html"><button>buy</button></a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>   
+                        <div style="height: 50px;"></div>
+                        <section id="sec">
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Document</title><link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+    
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Form</title>
+        <style>
+            .title {
+                font-family: Arial, sans-serif;
+                color: floralwhite;
+                margin-top: 50px;
+                font-size: 36px;
+            }
+            body {
+                text-align: center;
+                font-family: Arial, sans-serif;
+                background-color: #333;
+                color: floralwhite;
+            }
+            #logo-button {
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            #logo-button img {
+                width: 50px;
+                vertical-align: middle;
+            }
+            #enterDetails {
+                margin: 20px auto;
+                padding: 20px;
+                width: 1200px;
+                background-color: #333;
+                color: floralwhite;
+                border-radius: 8px;
+            }
+            input, textarea {
+                width: 60%;
+                padding: 8px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                color: #333;
+            }
+            textarea {
+                height: 180px; /* Ajustement de la hauteur de la zone de texte */
+            }
+            button {
+                padding: 15px 25px;
+                border: unset;
+                border-radius: 15px;
+                color: #212121;
+                z-index: 1;
+                background: #e8e8e8;
+                position: relative;
+                font-weight: 2000;
+                font-size: 17px;
+                -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+                box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+                transition: all 250ms;
+                overflow: hidden;
+            }
+            button::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 0;
+                border-radius: 15px;
+                background-color: #212121;
+                z-index: -1;
+                -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+                box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+                transition: all 250ms;
+            }
+            button:hover {
+                color: #e8e8e8;
+            }
+            button:hover::before {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <div id="enterDetails">
+                <div style="height: 20px;"></div>
+                <h1 class="title">Contact</h1>
+                <div style="height: 40px;"></div>
+                <label for="enterID"><h4>Name</h4></label>
+                <input id="enterID" type="text" required>
+    
+                <label for="enterName"><h4>Phone</h4></label>
+                <input id="enterName" type="number" required>
+    
+                <label for="enterAge"><h4>Message</h4></label>
+                <textarea id="enterAge" required></textarea> <br><br>
+                <div style="height: 75px;"></div>
+                <button id="insert">Contact Us</button>
+                <br><br>
+            </div>
+        </center>
+    </body>
+    </html>                       
+                     <script type="module">
+                                // Import the functions you need from the SDKs you need
+                                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+                                // TODO: Add SDKs for Firebase products that you want to use
+                                // https://firebase.google.com/docs/web/setup#available-libraries
+                              
+                                // Your web app's Firebase configuration
+                                const firebaseConfig = {
+                                  apiKey: "AIzaSyBj81PGtkd77P8c01Q7NbUTQqbIcEycdME",
+                                  authDomain: "cantact-cb2f1.firebaseapp.com",
+                                  projectId: "cantact-cb2f1",
+                                  storageBucket: "cantact-cb2f1.appspot.com",
+                                  messagingSenderId: "955731340232",
+                                  appId: "1:955731340232:web:c37345723ff302e90daefd"
+                                };
+                              
+                                // Initialize Firebase
+                                const app = initializeApp(firebaseConfig);
+                              
+                            
+                                    import {getDatabase, ref, get, set, child, update, remove}
+                                    from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js"
+                            
+                            
+                                    
+                            
+                                    const db = getDatabase();
+                            
+                                    var enterID = document.querySelector("#enterID");
+                                    var enterName = document.querySelector("#enterName");
+                                    var enterAge = document.querySelector("#enterAge");
+                                    var findID = document.querySelector("#findID");
+                                    var findName = document.querySelector("#findName");
+                                    var findAge = document.querySelector("#findAge");
+                                  
+                            
+                                    var insertBtn = document.querySelector("#insert");
+                                    var updateBtn = document.querySelector("#update");
+                                    var removeBtn = document.querySelector("#remove");
+                                    var findBtn = document.querySelector("#find");
+                            
+                                    function InsertData() {
+                                        set(ref(db, "People/"+ enterID.value),{
+                                            numero: enterName.value,
+                                            name: enterID.value,
+                                            message : enterAge.value
+                                        })
+                                        .then(()=>{
+                                            alert("Data added successfully");
+                                        })
+                                        .catch((error)=>{
+                                            alert(error);
+                                        });
+                                    }
+                            
+                                    function FindData() {
+                                        const dbref = ref(db);
+                            
+                                        get(child(dbref, "People/" + findID.value))
+                                        .then((snapshot)=>{
+                                            if(snapshot.exists()){
+                                                findName.innerHTML = "Name: " + snapshot.val().Name;
+                                                findAge.innerHTML = "Age: " + snapshot.val().Age;
+                                            } else {
+                                                alert("No data found");
+                                            }
+                                        })
+                                        .catch((error)=>{
+                                            alert(error)
+                                        })
+                                        
+                                    }
+                            
+                                    function UpdateData(){
+                                        update(ref(db, "People/"+ enterID.value),{
+                                            Name: enterName.value,
+                                            Age: enterAge.value
+                                        })
+                                        .then(()=>{
+                                            alert("Data updated successfully");
+                                        })
+                                        .catch((error)=>{
+                                            alert(error);
+                                        });
+                                    }
+                            
+                                    function RemoveData(){
+                                        remove(ref(db, "People/"+ enterID.value))
+                                        .then(()=>{
+                                            alert("Data deleted successfully");
+                                        })
+                                        .catch((error)=>{
+                                            alert(error);
+                                        });
+                                    }
+                            
+                                    insertBtn.addEventListener('click', InsertData);
+                                    updateBtn.addEventListener('click', UpdateData);
+                                    removeBtn.addEventListener('click', RemoveData);
+                                    findBtn.addEventListener('click', FindData);
+                            
+                                  </script>
+                            </body>
+                            </html></section>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de nous</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .about-section {
+            background: #f0f0f0;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .about-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+
+        .wrapper {
+            display: inline-flex;
+            list-style: none;
+            height: 120px;
+            width: 100%;
+            padding-top: 40px;
+            font-family: "Poppins", sans-serif;
+            justify-content: center;
+        }
+
+        .wrapper .icon {
+            position: relative;
+            background: #fff;
+            border-radius: 50%;
+            margin: 10px;
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .wrapper .tooltip {
+            position: absolute;
+            top: 0;
+            font-size: 14px;
+            background: #fff;
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 5px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .wrapper .tooltip::before {
+            position: absolute;
+            content: "";
+            height: 8px;
+            width: 8px;
+            background: #fff;
+            bottom: -3px;
+            left: 50%;
+            transform: translate(-50%) rotate(45deg);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .wrapper .icon:hover .tooltip {
+            top: -45px;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .wrapper .icon:hover span,
+        .wrapper .icon:hover .tooltip {
+            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .wrapper .facebook:hover,
+        .wrapper .facebook:hover .tooltip,
+        .wrapper .facebook:hover .tooltip::before {
+            background: #1877f2;
+            color: #fff;
+        }
+
+        .wrapper .twitter:hover,
+        .wrapper .twitter:hover .tooltip,
+        .wrapper .twitter:hover .tooltip::before {
+            background: #1da1f2;
+            color: #fff;
+        }
+
+        .wrapper .instagram:hover,
+        .wrapper .instagram:hover .tooltip,
+        .wrapper .instagram:hover .tooltip::before {
+            background: #e4405f;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="secc" class="about-section">
+        <h1>À propos de nous</h1>
+        <p>Bienvenue sur notre site web de location de vêtements et accessoires ! Nous sommes spécialisés dans la
+            fourniture de tenues élégantes et de qualité pour toutes vos occasions. Que ce soit pour un événement
+            spécial, une soirée entre amis ou une journée de détente, nous avons ce qu'il vous faut. Notre mission est de
+            vous offrir une expérience de location facile, agréable et sans tracas. Explorez notre collection et trouvez
+            la tenue parfaite qui fera tourner les têtes.</p>
+        <ul class="wrapper">
+            <li class="icon facebook">
+                <span class="tooltip">Facebook</span>
+                <svg viewBox="0 0 320 512" height="1.2em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                    </path>
+                </svg>
+            </li>
+            <li class="icon twitter">
+                <span class="tooltip">Twitter</span>
+                <svg height="1.8em" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
+                    class="twitter">
+                    <path
+                        d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429">
+                    </path>
+                </svg>
+            </li>
+            <li class="icon instagram">
+                <span class="tooltip">Instagram</span>
+                <svg xmlns="https://www.instagram.com/sleeklyshaped/" height="1.2em" fill="currentColor" class="bi bi-instagram"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                    </path>
+                </svg>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>
+</body>
+</html>
+
+

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign-in</title><link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button, input {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button {
+    
+        background-color:#333 ;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #D40912;
+        }
+        #signOutButton {
+            background-color: #f44336;
+        }
+        #signOutButton:hover {
+            background-color: #e53935;
+        }
+        #message {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="signInButton">Create Account / Sign In with Google</button>
+        <button id="signOutButton">Sign Out</button>
+
+        <div>
+            <h3>Sign In / Sign Up with Email</h3>
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            
+            <button id="signUpEmailButton">Sign Up with Email</button>
+        </div>
+
+        <div id="message">
+            <p>You have signed in as <span id="userName"></span> with the email <span id="userEmail"></span></p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyCxhdjehbpHozlOq-8QaU0d8uKO7fdrtUA",
+            authDomain: "fir-4e9d6.firebaseapp.com",
+            projectId: "fir-4e9d6",
+            storageBucket: "fir-4e9d6.appspot.com",
+            messagingSenderId: "133559214352",
+            appId: "1:133559214352:web:5a333fde2fcfce72f18595"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const db = getFirestore(app);
+        const provider = new GoogleAuthProvider();
+    
+        const signInButton = document.getElementById("signInButton");
+        const signOutButton = document.getElementById("signOutButton");
+        const signInEmailButton = document.getElementById("signInEmailButton");
+        const signUpEmailButton = document.getElementById("signUpEmailButton");
+        const message = document.getElementById("message");
+        const userName = document.getElementById("userName");
+        const userEmail = document.getElementById("userEmail");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+    
+        signOutButton.style.display = "none";
+    
+        const storeUserData = async (uid, data) => {
+            try {
+                await setDoc(doc(db, "users", uid), data);
+                console.log("User data successfully stored!");
+            } catch (error) {
+                console.error("Error storing user data: ", error);
+            }
+        };
+    
+        const getUserData = async (uid) => {
+            try {
+                const docRef = doc(db, "users", uid);
+                const docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                    console.log("User data:", docSnap.data());
+                    // Use user data as needed
+                } else {
+                    console.log("No such document!");
+                }
+            } catch (error) {
+                console.error("Error retrieving user data: ", error);
+            }
+        };
+    
+        const userSignInGoogle = async () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log(user);
+                    redirectToProductPage();
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode, errorMessage);
+                });
+        };
+    
+        const userSignOut = async () => {
+            signOut(auth).then(() => {
+                alert("You have signed out successfully!");
+            }).catch((error) => {
+                console.log(error);
+            });
+        };
+    
+        const userSignUpEmail = async () => {
+            const email = emailInput.value;
+            const password = passwordInput.value;
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user);
+                    // Store user data
+                    const userData = {
+                        email: user.email,
+                        displayName: user.displayName || "Anonymous"
+                    };
+                    storeUserData(user.uid, userData);
+                    redirectToProductPage();
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode, errorMessage);
+                });
+        };
+    
+        const userSignInEmail = async () => {
+            const email = emailInput.value;
+            const password = passwordInput.value;
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user);
+                    getUserData(user.uid);
+                    redirectToProductPage();
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode, errorMessage);
+                });
+        };
+    
+        const redirectToProductPage = () => {
+            window.location.href = "photo.html"; // Redirection vers pass1.html
+        };
+    
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                signOutButton.style.display = "block";
+                message.style.display = "block";
+                userName.innerHTML = user.displayName || "Anonymous";
+                userEmail.innerHTML = user.email;
+                getUserData(user.uid); // Retrieve user data when logged in
+                redirectToProductPage(); // Redirection automatique si l'utilisateur est connecté
+            } else {
+                signOutButton.style.display = "none";
+                message.style.display = "none";
+            }
+        });
+    
+        signInButton.addEventListener('click', userSignInGoogle);
+        signOutButton.addEventListener('click', userSignOut);
+        signUpEmailButton.addEventListener('click', userSignUpEmail);
+        signInEmailButton.addEventListener('click', userSignInEmail);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mhheader.css">
+    <title>Product Page</title><link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            background-color: #D40912;
+        }
+        .logo {
+            display: block;
+            max-width: 100px;
+            height: auto;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-image {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+        }
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .product-info {
+            flex: 2;
+            padding: 20px;
+        }
+        .product-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .product-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+        
+        
+        .related-products {
+            margin-top: 50px;
+        }
+        .related-products h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .product-list {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .card {
+            width: 230px;
+            height: 460px;
+            padding: .8em;
+            background: #f5f5f5;
+            position: relative;
+            overflow: visible;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        .card-img {
+            background-color: #ffcaa6;
+            height: 40%;
+            width: 100%;
+            border-radius: .5rem;
+            transition: .3s ease;
+        }
+        .card-info {
+            padding-top: 10%;
+        }
+        .card-footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .text-title {
+            font-weight: 900;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+        .text-body {
+            font-size: .9em;
+            padding-bottom: 10px;
+        }
+        .card-button {
+            border: 1px solid #252525;
+            display: flex;
+            padding: .3em;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: .3s ease-in-out;
+        }
+        .card-img:hover {
+            transform: translateY(-25%);
+            box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+        }
+        .card-button:hover {
+            border: 1px solid #ffcaa6;
+            background-color: #ffcaa6;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="service58.html">
+            <img class="logo" src="imgs/20220713_173129.png"80" alt="Logo">
+        </a>
+    </header>
+
+    <div class="container">
+        <div class="product">
+            <div class="product-image">
+                <img src="imgs/robe1 .jpeg" alt="Product Image">
+            </div>
+            <div class="product-info">
+                <div class="product-title">ROBE AVEC ENCOLURE AMÉRICAINE DRAPÉE</div>
+                <div style="height: 115px;"></div>
+                <div class="product-description">
+                    Cette élégante robe en mousseline de soie est parfaite pour toutes les occasions spéciales. Avec son design fluide et ses détails délicats en dentelle, elle offre une silhouette gracieuse et féminine. Disponible en plusieurs tailles et couleurs, cette robe est un incontournable pour toute garde-robe. Associez-la à des talons hauts et des bijoux minimalistes pour un look raffiné et sophistiqué.
+                </div>
+                <div style="height: 50px;"></div>
+
+<style type="text/css">.wrapper {
+  --font-color-dark: #323232;
+  --font-color-light: #fff;
+  --bg-color: #fff;
+  --main-color: #323232;
+  --secondary-color: #505050;
+  position: relative;
+  width: 250px;
+  height: 36px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 34px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 4px 4px var(--main-color);
+}
+
+.option {
+  margin-right: 5px;
+  width: 80.5px;
+  height: 28px;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  border-radius: 34px;
+  transition: 0.25s cubic-bezier(0, 0, 0, 1);
+}
+
+.option:last-child {
+  margin-right: 4px;
+}
+
+.option:hover {
+  background-color: var(--secondary-color);
+}
+
+.option:hover .span {
+  color: var(--font-color-light);
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.span {
+  color: var(--font-color-dark);
+}
+
+.input:checked + .btn {
+  background-color: var(--main-color);
+  transition: 0.2s cubic-bezier(0, 0, 0, 1);
+}
+
+.input:checked + .btn .span {
+  color: var(--font-color-light);
+  transition: 0.25s cubic-bezier(0, 0, 0, 1);
+}
+</style><div class="wrapper">
+  <div class="option">
+    <input checked="" value="option1" name="btn" type="radio" class="input" />
+    <div class="btn">
+      <span class="span">S</span>
+    </div>
+  </div>
+  <div class="option">
+    <input value="option2" name="btn" type="radio" class="input" />
+    <div class="btn">
+      <span class="span">M</span>
+    </div>
+  </div>
+  <div class="option">
+    <input value="option3" name="btn" type="radio" class="input" />
+    <div class="btn">
+      <span class="span">L</span>
+    </div>
+  </div>
+  <div class="option">
+    <input value="option3" name="btn" type="radio" class="input" />
+    <div class="btn">
+      <span class="span">XL</span>
+    </div>
+  </div>
+</div>
+<div style="height: 90px;"></div>
+                <div class="btn-container">
+                    <a href="pass1.html" class="btn">
+<center>
+                        <style>.button {
+  --width: 200px;
+  --height: 35px;
+  --tooltip-height: 35px;
+  --tooltip-width: 90px;
+  --gap-between-tooltip-to-button: 18px;
+  --button-color: #222;
+  --tooltip-color: #fff;
+  width: var(--width);
+  height: var(--height);
+  background: var(--button-color);
+  position: relative;
+  text-align: center;
+  border-radius: 0.45em;
+  font-family: "Arial";
+  transition: background 0.3s;
+}
+
+.button::before {
+  position: absolute;
+  content: attr(data-tooltip);
+  width: var(--tooltip-width);
+  height: var(--tooltip-height);
+  background-color: #555;
+  font-size: 0.9rem;
+  color: #fff;
+  border-radius: .25em;
+  line-height: var(--tooltip-height);
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+  left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.button::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #555;
+  left: calc(50% - 10px);
+  bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.button::after,.button::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper,.text,.icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.text {
+  top: 0
+}
+
+.text,.icon {
+  transition: top 0.5s;
+}
+
+.icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.button:hover {
+  background: #222;
+}
+
+.button:hover .text {
+  top: -100%;
+}
+
+.button:hover .icon {
+  top: 0;
+}
+
+.button:hover:before,.button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:hover:after {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+}
+
+.button:hover:before {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+
+
+</style><div data-tooltip="Price:-20%" class="button">
+  <div class="button-wrapper">
+  <div class="text">Buy Now</div>
+    <span class="icon">
+      <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+</svg>
+    </span>
+  </div>
+</div>
+</a>
+                </div>
+            </div>
+        </div></center>
+
+
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .related-products {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .related-products h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap; /* Permettre le passage à la ligne si l'espace est insuffisant */
+        }
+        .card {
+            width: calc(25% - 10px); /* 25% de largeur avec un espacement de 20px */
+            padding: 10px;
+            background: #f5f5f5;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            margin-bottom: 20px; /* Espacement entre les lignes */
+        }
+        .card-img {
+            height: 220px; /* Hauteur fixe pour le conteneur de l'image */
+            overflow: hidden; /* Assurer que l'image ne déborde pas */
+        }
+        .card-img img {
+            width: 100%;
+            height: auto;
+            object-fit: cover; /* Maintenir le rapport d'aspect et couvrir le conteneur */
+        }
+        .card-info {
+            padding-top: 10px;
+        }
+        .text-title {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .text-body {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .text-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #222;
+        }
+    
+    </style>
+</head>
+<body>
+
+<div class="related-products">
+    <h2>Produits Similaires</h2>
+    <div style="height: 90px;"></div>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-img">
+                <img src="imgs/robe2_Fotor.jpg" alt="Robe élégante">
+            </div>
+            <div class="card-info">
+                <p class="text-title">Robe élégante</p>
+                <p class="text-body">Pour vos soirées formelles et événements spéciaux.</p>
+            </div>
+            <div class="card-footer">
+                <span class="text-price">€35.00</span>
+                <a href="2.html" class="buy-button"><style>button {
+ padding: 15px 25px;
+ border: unset;
+ border-radius: 15px;
+ color: #212121;
+ z-index: 1;
+ background: #e8e8e8;
+ position: relative;
+ font-weight: 1000;
+ font-size: 17px;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms;
+ overflow: hidden;
+}
+
+button::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;
+ border-radius: 15px;
+ background-color: #212121;
+ z-index: -1;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms
+}
+
+button:hover {
+ color: #e8e8e8;
+}
+
+button:hover::before {
+ width: 100%;
+}</style><button> BUY
+</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img"><img src="imgs/robe3_Fotor.jpg" width="220" alt="Robe 2"></div>
+          <div class="card-info">
+              <p class="text-title">Robe chic</p>
+              <p class="text-body">Idéale pour une journée au bureau ou une sortie en ville.</p>
+          </div>
+          <div class="card-footer">
+              <span class="text-title">€30.00</span>
+              <div><a href="3.html"><button>buy</button></a>
+                                          </div>
+          </div>
+      </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="imgs/robe4_Fotor.jpg" alt="Robe élégante">
+            </div>
+            <div class="card-info">
+                <p class="text-title">Robe élégante</p>
+                <p class="text-body">Pour vos soirées formelles et événements spéciaux.</p>
+            </div>
+            <div class="card-footer">
+                <span class="text-price">€35.00</span>
+                <a href="4.html" class="buy-button"><style>button {
+ padding: 15px 25px;
+ border: unset;
+ border-radius: 15px;
+ color: #212121;
+ z-index: 1;
+ background: #e8e8e8;
+ position: relative;
+ font-weight: 1000;
+ font-size: 17px;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms;
+ overflow: hidden;
+}
+
+button::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;
+ border-radius: 15px;
+ background-color: #212121;
+ z-index: -1;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms
+}
+
+button:hover {
+ color: #e8e8e8;
+}
+
+button:hover::before {
+ width: 100%;
+}</style><button> BUY</button></a>
+            </div>
+        </div>
+
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html></center>
+                                
+
+ </svg>
+  </div>
+  </div>
+  </div>
+  </div>
+   </div>
+</div>
+</body>
+</html>
